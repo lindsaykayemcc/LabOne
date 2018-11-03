@@ -10,7 +10,7 @@ total = 0.0
 # if foodcost < 17.01 but > 12.00 then tip = 0.20
 # if foodcost < 25.00 but > 17.00 then tip = 0.25
 
-def calc_tip():
+def calc_tip(foodcost):
     if foodcost < 5.99:
         tip = float(0.10 * foodcost)
 
@@ -28,21 +28,21 @@ def calc_tip():
     return tip
 
 
-def calc_tax():
+def calc_tax(foodcost):
     tax = float(0.10 * foodcost)
     return tax
 
 def main():
 
     foodcost = float(input("What is the food cost?: "))
-    #tip = calc_tip()
-    #tax = calc_tax()
-    total = (foodcost + calc_tip() + calc_tax())
+    tip_result = calc_tip(foodcost)
+    tax_result = calc_tax(foodcost)
+    total = (foodcost + tip + tax)
 
 
     print("your food total is ", foodcost)
-    print("Your tax total is ", calc_tax())
-    print("Your tip total is ", calc_tip())
+    print("Your tax total is ", tax_result)
+    print("Your tip total is ", tip_result)
     print("Your total is ", total)
 
 main()
